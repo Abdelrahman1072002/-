@@ -1,0 +1,908 @@
+/* ========================================================
+   ملف شواهد الأداء الوظيفي للمعلمة - وزارة التعليم
+   تصميم متكامل ومتجاوب مع الوضع الداكن ومؤثرات 3D Flip
+   ======================================================== */
+
+:root {
+  /* Light Theme Palette */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-hero: linear-gradient(180deg, #f5eefa 0%, #ffffff 100%);
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf5ff;
+  --bg-badge: #f3e8ff;
+  --text-badge: #6b21a8;
+  
+  --primary: #582c82;
+  --primary-hover: #451d6b;
+  --primary-dark: #3b165c;
+  --primary-light: #f5f0fb;
+  --accent-gold: #d97706;
+  --accent-green: #059669;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-purple: #e9d5ff;
+
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 10px 24px rgba(88, 44, 130, 0.12);
+
+  --flip-back-bg: linear-gradient(145deg, #582c82 0%, #351354 100%);
+  --flip-back-text: #ffffff;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========================================================
+   Dark Theme Overrides
+   ======================================================== */
+[data-theme="dark"] {
+  --bg-primary: #090d16;
+  --bg-secondary: #0f172a;
+  --bg-hero: linear-gradient(180deg, #1b0f2e 0%, #090d16 100%);
+  --bg-card: #131c2e;
+  --bg-card-hover: #1e293b;
+  --bg-badge: #3b165c;
+  --text-badge: #e9d5ff;
+
+  --primary: #a855f7;
+  --primary-hover: #c084fc;
+  --primary-dark: #9333ea;
+  --primary-light: #24113e;
+  --accent-gold: #fbbf24;
+  --accent-green: #34d399;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border-color: #1e293b;
+  --border-light: #1e293b;
+  --border-purple: #4c1d95;
+
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 28px rgba(168, 85, 247, 0.25);
+
+  --flip-back-bg: linear-gradient(145deg, #3b165c 0%, #170729 100%);
+  --flip-back-text: #ffffff;
+}
+
+/* ========================================================
+   Base & Typography
+   ======================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  padding-bottom: 90px;
+  overflow-x: hidden;
+}
+
+.font-amiri {
+  font-family: 'Amiri', serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* ========================================================
+   Top Navigation Bar
+   ======================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  padding: 10px 0;
+  transition: all var(--transition-fast);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(88, 44, 130, 0.25);
+}
+
+.brand-title {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 960px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Action Buttons */
+.btn-action {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.btn-action:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Dark Mode Switch Button */
+.btn-theme-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.btn-theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Mobile Hamburger */
+.mobile-nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 960px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+.mobile-drawer {
+  display: none;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 16px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-drawer.open {
+  display: flex;
+}
+
+.mobile-drawer .nav-link {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.mobile-drawer .nav-link:hover {
+  background: var(--bg-primary);
+}
+
+/* ========================================================
+   Cover & Hero Section (كما بالفيديو 00:00)
+   ======================================================== */
+header.hero-cover {
+  background: var(--bg-hero);
+  padding: clamp(36px, 6vw, 64px) 16px clamp(24px, 4vw, 40px);
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.gov-title {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.ministry-title {
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.main-title {
+  font-size: clamp(1.85rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin: 12px 0 8px;
+  line-height: 1.25;
+}
+
+.school-title {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* The Box from Video */
+.meta-box {
+  display: inline-block;
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-md);
+  padding: clamp(16px, 4vw, 24px) clamp(20px, 5vw, 36px);
+  margin: 10px auto 24px;
+  box-shadow: var(--card-shadow);
+  text-align: right;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.meta-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.meta-box p {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  margin: 8px 0;
+  color: var(--text-secondary);
+}
+
+.meta-box strong {
+  color: var(--primary);
+  margin-left: 8px;
+}
+
+/* Bismillah */
+.bismillah-box {
+  margin: clamp(28px, 5vw, 44px) auto clamp(16px, 4vw, 24px);
+  text-align: center;
+  position: relative;
+}
+
+.bismillah-text {
+  font-family: 'Amiri', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: inline-block;
+  padding: 0 clamp(12px, 4vw, 28px);
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 2;
+  transition: color var(--transition-normal);
+}
+
+[data-theme="dark"] .bismillah-text {
+  color: #e9d5ff;
+}
+
+.bismillah-divider {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* ========================================================
+   Section Titles & Cards
+   ======================================================== */
+.section-title {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 900;
+  color: var(--primary);
+  text-align: center;
+  margin: clamp(40px, 7vw, 68px) 0 clamp(20px, 4vw, 32px);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 54px;
+  height: 4px;
+  background: var(--primary);
+  margin: 10px auto 0;
+  border-radius: var(--radius-full);
+}
+
+.white-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 20px;
+  transition: all var(--transition-fast);
+}
+
+.white-card:hover {
+  border-color: var(--border-purple);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.intro-card {
+  line-height: 2;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-secondary);
+  text-align: justify;
+}
+
+.intro-card p {
+  margin-bottom: 16px;
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+}
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Numbered Goals List */
+.goals-list {
+  padding-right: 20px;
+  line-height: 2;
+  color: var(--text-secondary);
+  font-size: clamp(0.88rem, 2.5vw, 0.96rem);
+}
+
+.goals-list li {
+  margin-bottom: 8px;
+}
+
+/* ========================================================
+   البيانات الأساسية للمعلمة (Video 00:08 - 00:10)
+   ======================================================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: clamp(14px, 3vw, 20px);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--card-shadow);
+  user-select: none;
+}
+
+.info-label {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--primary);
+  transition: color var(--transition-fast);
+}
+
+.info-val {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+  word-break: break-word;
+}
+
+/* Active Highlight state matching video where card flips to solid purple */
+.info-card:hover, .info-card.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(88, 44, 130, 0.3);
+}
+
+.info-card:hover .info-label, .info-card.active .info-label {
+  color: #f3e8ff;
+}
+
+.info-card:hover .info-val, .info-card.active .info-val {
+  color: #ffffff;
+}
+
+/* ========================================================
+   عناصر تقييم الأداء الوظيفي (3D Flip Cards - Video 00:11-00:18)
+   ======================================================== */
+.elements-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+@media (min-width: 520px) {
+  .elements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 860px) {
+  .elements-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .elements-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+}
+
+.flip-card-container {
+  perspective: 1000px;
+  height: 300px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card-container.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+/* Front Face */
+.flip-card-front {
+  background-color: var(--bg-card);
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.flip-card-front:hover {
+  border-color: var(--primary);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: var(--primary);
+  transition: transform var(--transition-fast);
+}
+
+.flip-card-front:hover .icon-wrapper {
+  transform: scale(1.08);
+}
+
+.element-title {
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.flip-hint {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Back Face (Flipped) */
+.flip-card-back {
+  background: var(--flip-back-bg);
+  color: var(--flip-back-text);
+  transform: rotateY(180deg);
+  text-align: right;
+  border-color: var(--primary-dark);
+}
+
+.back-title {
+  font-size: 1rem;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evidence-list {
+  list-style: none;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-left: 4px;
+}
+
+.evidence-list li {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.evidence-list li::before {
+  content: '✓';
+  color: #c084fc;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.btn-view-shawahed {
+  background: #ffffff;
+  color: #3b165c;
+  border: none;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.btn-view-shawahed:hover {
+  background: #f5f0fb;
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   Floating Sound Toggle Button (Video Bottom-Left)
+   ======================================================== */
+.sound-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: clamp(0.78rem, 2vw, 0.88rem);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  transition: all var(--transition-fast);
+}
+
+.sound-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sound-toggle-btn.active {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-card-hover);
+}
+
+.sound-wave-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: inline-block;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* ========================================================
+   Evidence Modal
+   ======================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 16px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 620px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(20px, 4vw, 30px);
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+
+.badge-tag {
+  background: var(--bg-badge);
+  color: var(--text-badge);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* ========================================================
+   Footer
+   ======================================================== */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 16px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+/* ========================================================
+   Print Styles
+   ======================================================== */
+@media print {
+  .navbar, .sound-toggle-btn, .modal-overlay, .btn-theme-toggle {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding-bottom: 0 !important;
+  }
+  .flip-card-container {
+    height: auto !important;
+    page-break-inside: avoid;
+    margin-bottom: 16px;
+  }
+  .flip-card-inner {
+    transform: none !important;
+  }
+  .flip-card-back {
+    position: static !important;
+    transform: none !important;
+    color: #000 !important;
+    background: #f8fafc !important;
+    border: 1px solid #ccc !important;
+  }
+}

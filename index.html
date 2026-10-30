@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ملف شواهد الأداء الوظيفي للمعلمة | وزارة التعليم</title>
+  <meta name="description" content="ملف تفاعلي متكامل لشواهد الأداء الوظيفي للمعلمات وفق معايير وزارة التعليم بالمملكة العربية السعودية، مع بطاقات تفاعلية ثلاثية الأبعاد ووضع ليلي (Dark Mode)." />
+  
+  <!-- Google Fonts: Cairo & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. شريط التنقل العلوي (Navigation Bar)
+       ========================================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      
+      <!-- الهوية والعنوان -->
+      <a href="#" class="brand-wrap">
+        <div class="brand-icon">★</div>
+        <div class="brand-title">شواهد الأداء الوظيفي</div>
+      </a>
+
+      <!-- روابط التنقل السريع (الشاشات الكبيرة) -->
+      <div class="nav-links">
+        <a href="#intro" class="nav-link">المقدمة</a>
+        <a href="#vision" class="nav-link">الرؤية والرسالة</a>
+        <a href="#goals" class="nav-link">أهداف التعليم</a>
+        <a href="#ethics" class="nav-link">الميثاق</a>
+        <a href="#teacher-info" class="nav-link">بيانات المعلمة</a>
+        <a href="#elements" class="nav-link" style="color: var(--primary); font-weight: 800;">الشواهد التفاعلية</a>
+      </div>
+
+      <!-- الإجراءات وأزرار التحكم -->
+      <div class="nav-actions">
+        <!-- زر الوضع الداكن (Dark Mode Button) -->
+        <button id="themeToggleBtn" class="btn-theme-toggle" title="تبديل الوضع الداكن / الفاتح">
+          <span id="themeIcon">🌙</span>
+          <span id="themeText">الوضع الداكن</span>
+        </button>
+
+        <!-- زر الطباعة -->
+        <button class="btn-action" onclick="window.print()" title="طباعة الملف">
+          <span>🖨️</span>
+          <span>طباعة</span>
+        </button>
+
+        <!-- زر القائمة للجوال -->
+        <button id="mobileNavToggle" class="mobile-nav-toggle" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <!-- قائمة الجوال المنسدلة -->
+    <div id="mobileDrawer" class="mobile-drawer">
+      <a href="#intro" class="nav-link">المقدمة</a>
+      <a href="#vision" class="nav-link">الرؤية والرسالة</a>
+      <a href="#goals" class="nav-link">أهداف التعليم</a>
+      <a href="#ethics" class="nav-link">الميثاق</a>
+      <a href="#teacher-info" class="nav-link">بيانات المعلمة</a>
+      <a href="#elements" class="nav-link" style="color: var(--primary); font-weight: 800;">الشواهد التفاعلية</a>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       زر المؤثرات الصوتية العائم (الزاوية السفلية اليسرى كما بالفيديو)
+       ========================================== -->
+  <button id="soundToggleBtn" class="sound-toggle-btn active" title="تشغيل / إيقاف المؤثرات الصوتية التفاعلية">
+    <span class="sound-wave-dot"></span>
+    <span id="soundIcon">🔊</span>
+    <span id="soundText">الأصوات مفعلة</span>
+  </button>
+
+  <!-- ==========================================
+       2. غلاف الملف (Hero Cover - مطابقة فيديو 00:00)
+       ========================================== -->
+  <header class="hero-cover">
+    <div class="container">
+      <div class="gov-title">المملكة العربية السعودية</div>
+      <div class="ministry-title">وزارة التعليم</div>
+      
+      <h1 class="main-title">ملف شواهد الأداء الوظيفي</h1>
+      <div class="school-title">مدرسةاى حاجه </div>
+
+      <!-- الإطار التعريفي كما بالفيديو -->
+      <div class="meta-box">
+        <p><strong>إعداد المعلمة:</strong> فلانة بنت فلان</p>
+        <p><strong>مديرة المدرسة:</strong> فلانة بنت فلان</p>
+        <p><strong>العام الدراسي:</strong> 1445 - 1446 هـ</p>
+      </div>
+
+      <!-- البسملة والخط العربي الفاخر -->
+      <div class="bismillah-box">
+        <div class="bismillah-divider"></div>
+        <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       3. المحتوى الرئيسي
+       ========================================== -->
+  <main class="container">
+    
+    <!-- قسم المقدمة (مطابقة فيديو 00:02 - 00:03) -->
+    <section id="intro">
+      <h2 class="section-title">المقدمة</h2>
+      <div class="white-card intro-card">
+        <p style="text-align: center; margin-bottom: 20px;">
+          <strong class="font-amiri" style="font-size: 1.5rem; color: var(--primary);">بسم الله الرحمن الرحيم</strong>
+        </p>
+        <p>الحمد لله الذي علم بالقلم، علم الإنسان ما لم يعلم، والصلاة والسلام على أشرف الأنبياء والمرسلين نبينا محمد وعلى آله وصحبه أجمعين.</p>
+        <p>يهدف هذا الملف إلى توثيق الشواهد والأدلة التي تعكس مدى تفاني المعلمة في أداء واجباتها المهنية، وفقاً للمعايير التربوية والتعليمية المعتمدة من وزارة التعليم بالمملكة العربية السعودية، ومواكبةً لخطط التحول الرقمي والتطوير المستمر في منظومة التعليم الحديثة.</p>
+        <p>ويتضمن هذا الملف رصداً دقيقاً لمجموعة من الشواهد التي تشمل ممارسات التدريس، والأنشطة الصفية واللاصفية، ونتائج التحصيل والتقويم، إضافة إلى مبادرات في تطوير البيئة التعليمية والشراكة المجتمعية بما يخدم المتعلمين ويعزز مخرجات التعليم.</p>
+        <div style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; font-size: 0.95rem;">
+          <span style="color: var(--primary); font-weight: 700;">سائلين المولى عز وجل أن يبارك في هذه الجهود ويجعل هذا العمل خالصاً لوجهه الكريم.</span>
+          <span style="color: var(--text-muted);">إعداد المعلمة: فلانة بنت فلان</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الرؤية والرسالة (مطابقة فيديو 00:04) -->
+    <section id="vision">
+      <div class="grid-2">
+        <div class="white-card">
+          <div class="card-header">
+            <span>👁️</span>
+            <span>الرؤية</span>
+          </div>
+          <p style="color: var(--text-secondary); line-height: 1.85;">
+            نسعى إلى التميز في تقديم تعليم نوعي يُسهم في بناء جيل واعٍ ومبدع ومتمسك بقيمه، قادر على مواكبة العصر والمشاركة الفعالة في خدمة وطنه وفق رؤية المملكة 2030.
+          </p>
+        </div>
+        <div class="white-card">
+          <div class="card-header">
+            <span>✉️</span>
+            <span>الرسالة</span>
+          </div>
+          <p style="color: var(--text-secondary); line-height: 1.85;">
+            الالتزام بتقديم تعليم عالي الجودة من خلال تطبيق استراتيجيات التدريس الحديثة وتوفير بيئة تعليمية محفزة وداعمة، وتطوير قدرات ومهارات الطلاب الإبداعية والفكرية، وبناء شراكة فاعلة مع الأسرة والمجتمع لتحقيق مخرجات تعليمية متميزة.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- رؤية المملكة في التعليم (مطابقة فيديو 00:04 - 00:05) -->
+    <section>
+      <h2 class="section-title">رؤية المملكة في التعليم</h2>
+      <div class="grid-3">
+        <div class="white-card" style="text-align: center;">
+          <div style="font-size: 2.3rem; margin-bottom: 10px;">🎓</div>
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 10px;">رفع مستوى التحصيل العلمي</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+            تسعى رؤية 2030 إلى تحسين مخرجات التعليم ورفع مستوى التحصيل الدراسي للطلاب بما يتوافق مع المعايير الدولية وتطوير بيئة تعليمية محفزة.
+          </p>
+        </div>
+
+        <div class="white-card" style="text-align: center;">
+          <div style="font-size: 2.3rem; margin-bottom: 10px;">💡</div>
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 10px;">تعزيز الابتكار والإبداع</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+            تهدف الرؤية إلى بناء جيل مبدع قادر على التفكير النقدي وحل المشكلات من خلال تطوير المناهج والأنشطة والتركيز على مجالات العلوم والتقنية والابتكار.
+          </p>
+        </div>
+
+        <div class="white-card" style="text-align: center;">
+          <div style="font-size: 2.3rem; margin-bottom: 10px;">🚀</div>
+          <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 10px;">تطوير المهارات</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+            تركز رؤية 2030 على تطوير المهارات العملية والمهنية للطلاب بما يؤهلهم لسوق العمل والمنافسة العالمية، وتوفير البرامج التدريبية والتطبيقية في جميع المراحل.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- أهداف التعليم (مطابقة فيديو 00:06) -->
+    <section id="goals">
+      <h2 class="section-title">أهداف التعليم</h2>
+      <div class="grid-2">
+        <div class="white-card">
+          <div class="card-header">
+            <span>🇸🇦</span>
+            <span>أهداف التعليم في المملكة</span>
+          </div>
+          <ol class="goals-list">
+            <li>غرس العقيدة الإسلامية الصحيحة وتأصيلها في نفوس الطلاب والسلوك القويم.</li>
+            <li>تنمية الولاء والانتماء للوطن وقيادته الرشيدة والاعتزاز بتاريخه وتراثه الحضاري.</li>
+            <li>تزويد الطلاب بالمعارف والمهارات التي تؤهلهم لمواصلة رحلتهم العلمية أو الانخراط في سوق العمل.</li>
+            <li>تحقيق التوازن في تنمية شخصية الطالب فكرياً وجسدياً ونفسياً واجتماعياً.</li>
+            <li>تربية المواطن الصالح القادر على المساهمة الفعالة في نهضة الوطن وحمايته وازدهاره.</li>
+            <li>تنمية مهارات التفكير النقدي والإبداعي والتعلم الذاتي وحل المشكلات.</li>
+            <li>تعزيز القيم الإنسانية المشتركة والتسامح واحترام الثقافات والحضارات المتنوعة.</li>
+          </ol>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">
+            <span>🎯</span>
+            <span>أهداف التعليم العامة</span>
+          </div>
+          <ol class="goals-list">
+            <li>تعزيز المشاركة المجتمعية في التعليم وتفعيل دور الأسرة كشريك أساسي.</li>
+            <li>تحسين مخرجات التعلم الأساسية في جميع المراحل الدراسية وفق مؤشرات دقيقة.</li>
+            <li>استقطاب وتأهيل المعلمين وتطوير مهاراتهم المهنية وكفاءاتهم التدريسية.</li>
+            <li>تحسين البيئة التعليمية المحفزة للإبداع والابتكار والداعمة للأنشطة المختلفة.</li>
+            <li>تطوير المناهج وأساليب التقويم لمواكبة التطورات العلمية والتقنية.</li>
+            <li>ضمان تكافؤ الفرص في التعليم لجميع الفئات وتلبية احتياجات ذوي الإعاقة والموهوبين.</li>
+            <li>ضمان المواءمة المستمرة بين مخرجات التعليم ومتطلبات سوق العمل الوطني.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ميثاق أخلاقيات مهنة التعليم (مطابقة فيديو 00:07) -->
+    <section id="ethics">
+      <h2 class="section-title">ميثاق أخلاقيات مهنة التعليم</h2>
+      <div class="white-card" style="margin-bottom: 22px; text-align: center; color: var(--text-secondary); font-size: 0.96rem;">
+        تهدف أخلاقيات مهنة التعليم إلى تعزيز قيم النزاهة والإخلاص والمسؤولية في العمل التربوي، وبناء مجتمع تعليمي متكامل يعزز من دور المعلم في بناء الأجيال وتطوير المجتمع.
+      </div>
+
+      <div class="grid-3">
+        <div class="white-card">
+          <div class="card-header">🛡️ الالتزام والمسؤولية</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">الإخلاص والأمانة في أداء الواجب التعليمي والتربوي، واستشعار شرف المهنة وعظيم أثرها في بناء الأجيال.</p>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">⚖️ العدل والمساواة</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">معاملة جميع الطلاب بموضوعية وعدالة وتكافؤ فرص دون تمييز، وبناء جسور الثقة والاحترام المتبادل.</p>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">🤝 الاحترام والتسامح</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">التعامل باحترام راقٍ مع جميع أطراف العملية التعليمية من زملاء وإدارة وطلاب وأولياء أمور.</p>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">✅ الصدق والأمانة</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">الشفافية والنزاهة في نقل المعارف وتقييم أداء الطلاب ورصد الدرجات وإعداد التقارير الرسمية.</p>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">📖 المعرفة والتطوير المهني</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">السعي المستمر لتطوير المهارات التخصصية والتربوية ومواكبة النظريات والتقنيات التعليمية الحديثة.</p>
+        </div>
+
+        <div class="white-card">
+          <div class="card-header">💡 الإبداع والتحفيز</div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">تشجيع الطلاب على الابتكار والإبداع وتنمية قدراتهم الفردية في بيئة تعليمية تفاعلية ومحفزة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- البيانات الأساسية للمعلمة (مطابقة فيديو 00:08 - 00:10) -->
+    <section id="teacher-info">
+      <h2 class="section-title">البيانات الأساسية للمعلمة</h2>
+      
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">الاسم</div>
+          <div class="info-val">اسم المعلمه </div>
+        </div>
+        <div class="info-card active">
+          <div class="info-label">المؤهل</div>
+          <div class="info-val">بكالوريوس تربوي بمرتبة الشرف</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">التخصص</div>
+          <div class="info-val">لغة عربية وآدابها</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">مواد التدريس</div>
+          <div class="info-val">لغتي الخالدة / المهارات اللغوية</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">صفوف التدريس</div>
+          <div class="info-val">الأول والثاني الثانوي</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">سنة التعيين</div>
+          <div class="info-val">1440 هـ</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">المدرسة</div>
+          <div class="info-val">مدرسة اى حاجه </div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">مديرة المدرسة</div>
+          <div class="info-val">اسم المديرة </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- عناصر تقييم الأداء الوظيفي (مطابقة فيديو 00:11 - 00:18) -->
+    <section id="elements">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 40px; margin-bottom: 20px;">
+        <div>
+          <h2 class="section-title" style="margin: 0; text-align: right;">عناصر تقييم الأداء الوظيفي</h2>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+            انقر على أي بطاقة للدوران ثلاثي الأبعاد (3D Flip) والاطلاع على الشواهد والأدلة المعتمدة
+          </p>
+        </div>
+
+        <button id="flipAllBtn" class="btn-action" style="background: var(--bg-card); border-color: var(--primary); color: var(--primary); font-weight: 800;">
+          قلب جميع البطاقات (3D)
+        </button>
+      </div>
+
+      <!-- شبكة البطاقات التفاعلية (يتم إنشاؤها عبر script.js) -->
+      <div class="elements-grid" id="elementsGrid">
+        <!-- Generated by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       4. نافذة عرض الشواهد (Evidence Modal)
+       ========================================== -->
+  <div id="evidenceModal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close" title="إغلاق">✕</button>
+      
+      <h3 id="modalTitle" style="color: var(--primary); font-size: 1.35rem; font-weight: 800; margin-bottom: 4px;"></h3>
+      <p id="modalCategory" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 18px;"></p>
+
+      <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 18px;">
+        <h4 style="color: var(--primary); font-size: 0.92rem; font-weight: 700; margin-bottom: 8px;">
+          ✓ قائمة الشواهد والمؤشرات المعتمدة للبند:
+        </h4>
+        <ul id="modalEvidenceList" style="padding-right: 22px; color: var(--text-secondary); line-height: 1.75; font-size: 0.88rem;"></ul>
+      </div>
+
+      <h4 style="color: var(--text-primary); font-size: 0.95rem; font-weight: 700; margin-bottom: 10px;">
+        📄 المستندات والوثائق المرفقة:
+      </h4>
+      <div id="modalDocsList"></div>
+
+      <button id="modalFooterCloseBtn" style="margin-top: 20px; width: 100%; padding: 12px; background: var(--primary); color: #ffffff; border: none; border-radius: var(--radius-sm); font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: background 0.2s;">
+        إغلاق النافذة
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       5. التذييل (Footer)
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; color: var(--text-primary);">
+        <span>★</span>
+        <span>ملف شواهد الأداء الوظيفي للمعلمات · وزارة التعليم</span>
+      </div>
+      <p>تم تصميم هذا الموقع التفاعلي المتكامل وفق معايير الجودة والتحول الرقمي بالمملكة العربية السعودية.</p>
+      <div style="margin-top: 14px; font-size: 0.8rem; color: var(--text-muted);">
+        جميع الحقوق محفوظة للمعلمة والمدرسة © 1445 - 1446 هـ
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
